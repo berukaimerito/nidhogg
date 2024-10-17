@@ -147,3 +147,47 @@
 
 (setf lst '(1 3 4 5))  ;; Modify lst
 (print lst)  ;; Should print (1 3 4 5)
+
+(defun func-name (a b &optional c d)
+  (print a)
+  (print b)
+  (print c)
+  (print d))
+
+
+(func-name 1 2 3) ;; 1 2 3 nil
+
+(defun function-name (a &optional (b 2))
+  (print a)
+  (print b)
+)
+
+(function-name 1 3) ;; 1 3
+
+;; keyword parameters must be passed explicityly
+
+(defun functwo (a b &key c d)
+  (print a)
+  (print b)
+  (print c)
+  (print d))
+
+(functwo 1 2 :c 3) ;; 1 2 3 nil
+
+(defun functhree (a b &rest rest-args)
+  (print a)
+  (print rest-args))
+
+
+(defun function-four (a &optional b &rest c)
+  (print a)
+  (print b)
+  (print c))
+
+
+;; namespaces
+
+(let ((list '("abc" 14 25)))
+  (print list) ;; outputs defined list
+  (print (list)))  ;; will call list function with no parameters ()
+
